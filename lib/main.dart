@@ -12,7 +12,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return  GetMaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Color(0xff100B20),
+      ),
+      debugShowCheckedModeBanner: false,
       home: SplashView(),
     );
   }

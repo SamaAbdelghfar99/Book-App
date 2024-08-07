@@ -1,5 +1,7 @@
 import 'package:bookapp/features/home/presentation/views/wedgets/custom_appbar.dart';
+import 'package:bookapp/features/home/presentation/views/wedgets/custom_list_view_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -10,6 +12,7 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       children: [
         CustomAppBar(),
+        CustomListViewIcon(),
       ],
     );
   }

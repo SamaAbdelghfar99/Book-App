@@ -1,3 +1,4 @@
+import 'package:bookapp/core/utils/styels.dart';
 import 'package:bookapp/features/home/presentation/views/wedgets/custom_appbar.dart';
 import 'package:bookapp/features/home/presentation/views/wedgets/custom_list_view_item.dart';
 import 'package:bookapp/features/home/presentation/views/wedgets/feature_list_view.dart';
@@ -20,14 +21,46 @@ class HomeViewBody extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Text('Best Saller',style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),),
-        )
+          child: Text('Best Saller',style: Styles.textStyle18,),
+        ),
+        BestSellerListViewItem(),
       ],
     );
   }
 }
+
+class BestSellerListViewItem extends StatelessWidget {
+  const BestSellerListViewItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 125,
+      child: Row(
+        children: [
+          AspectRatio(
+            aspectRatio: 2.5/4,
+            child: Container(
+              decoration:  BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(8),
+                image: const DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage('assets/images/harry-potter-and-the.png'),
+                ),
+              ),
+            ),
+          ),
+          Column(
+            children: [
+
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
 
 

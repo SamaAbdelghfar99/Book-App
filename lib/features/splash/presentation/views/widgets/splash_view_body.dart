@@ -1,7 +1,8 @@
 import 'package:bookapp/core/utils/assets.dart';
 import 'package:bookapp/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
+
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -18,19 +19,26 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   void initState() {
     super.initState();
-
-
+    animationcontrol();
     navigateToHome();
 
   }
+
+  void animationcontrol() {
+    animationController=AnimationController(vsync: this,duration: Duration(milliseconds: 500));
+    slidingAnimation=Tween<Offset>(end:Offset.zero ,begin:Offset(0, 2) ).animate(animationController);
+    animationController.forward();
+  }
   void navigateToHome(){
     Future.delayed(const Duration(seconds: 2), () {
-      Get.to(
-            () => const HomeView(),
-        transition: Transition.fade,
-        duration: const Duration(milliseconds: 250),
-      );
-    });
+      //Get.to(
+      //      () => const HomeView(),
+      //  transition: Transition.fade,
+      //  duration: const Duration(milliseconds: 250),
+      //);
+      GoRouter.of(context).push('/homeView');
+    },
+    );
   }
 
   @override
@@ -52,8 +60,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
             builder: (context, _) {
               return SlideTransition(
                 position: slidingAnimation,
-                child: const Text(
-                  'Read Free Books',
+                child:  Text(
+                  'Read Free Books',style: TextStyle(fontFamily: 'Sectra'),
                   textAlign: TextAlign.center,
                 ),
               );
